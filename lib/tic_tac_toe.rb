@@ -28,11 +28,6 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-#def valid_move?(board, index)
-  #index.between?(0, 8) && !position_taken?(board, index)
-#end
-
-
 def valid_move?(board, position)
   board[position] == " " && position.between?(0, 8) 
 end
@@ -63,32 +58,22 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+
+
+
+
 def turn(board)
-  puts 'Please enter 1-9:'
-  user_input = gets.strip
-  index = input_to_index(user_input)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
-    display_board(board)
-  else
-    turn(board)
-  end
+puts "Please enter a number 1-9:"
+answer = gets.strip
+player_token = "X" || "O"
+position = input_to_index(answer)
+if valid_move?(board, position)
+  move(board, position, player_token)
+  display_board(board)
+else
+turn(board)
 end
-
-
-
-#def turn(board)
-#puts "Please enter a number 1-9:"
-#answer = gets.strip
-#player_token = "X" || "O"
-#position = input_to_index(answer)
-#if valid_move?(board, position)
-  #move(board, position, player_token)
-  #display_board(board)
-#else
-#turn(board)
-#end
-#end
+end
 
 
 
