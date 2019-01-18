@@ -32,6 +32,13 @@ def valid_move?(board, index)
   index.between?(0, 8) && !position_taken?(board, index)
 end
 
+
+#def valid_move?(board, position)
+  #board[position] == " " && position.between?(0, 8) 
+#end
+
+
+
 def won?(board)
   WIN_COMBINATIONS.detect do |combo|
     board[combo[0]] == board[combo[1]] &&
@@ -68,6 +75,23 @@ def turn(board)
   end
 end
 
+
+
+#def turn(board)
+#puts "Please enter a number 1-9:"
+#answer = gets.strip
+#player_token = "X" || "O"
+#position = input_to_index(answer)
+#if valid_move?(board, position)
+  #move(board, position, player_token)
+  #display_board(board)
+#else
+#turn(board)
+#end
+#end
+
+
+
 def position_taken?(board, index)
   board[index] == 'X' || board[index] == 'O'
 end
@@ -89,10 +113,6 @@ def winner(board)
     board[winning_combo.first]
   end
 end
-
-
-
-
 
 
 
