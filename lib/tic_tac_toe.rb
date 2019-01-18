@@ -58,11 +58,6 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-
-
-
-
-
 def turn(board)
 puts "Please enter a number 1-9:"
 user_input = gets.strip
@@ -74,8 +69,6 @@ else
 turn(board)
 end
 end
-
-
 
 def position_taken?(board, index)
   board[index] == 'X' || board[index] == 'O'
