@@ -59,16 +59,12 @@ def input_to_index(user_input)
 end
 
 
-
-
-
 def turn(board)
 puts "Please enter a number 1-9:"
-answer = gets.strip
-player_token = "X" || "O"
-position = input_to_index(answer)
-if valid_move?(board, position)
-  move(board, position, player_token)
+user_input = gets.strip
+index = input_to_index(user_input)
+if valid_move?(board, index)
+  move(board, index, player_token(board))
   display_board(board)
 else
 turn(board)
